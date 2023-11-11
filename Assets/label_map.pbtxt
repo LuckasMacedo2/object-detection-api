@@ -1,0 +1,12 @@
+item {
+	id: 1
+	name: "Part 1"
+}
+item {
+	id: 2
+	name: "Part 2"
+}
+item {
+	id: 3
+	name: "Part 3"
+}

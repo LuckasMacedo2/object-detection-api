@@ -1,0 +1,50 @@
+# Byte-compiled / compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos de log e arquivos de backup
+*.log
+*.log.*
+*.bak
+*.swp
+
+# Arquivos gerados por IDEs ou editores
+.idea/
+.vscode/
+
+# Ambientes virtuais (por exemplo, virtualenv, venv)
+venv/
+env/
+.env/
+
+# Pacotes Python
+/dist/
+/build/
+*.egg-info/
+*.egg
+pip-log.txt
+
+# Arquivos de configuração (por exemplo, .env, .config)
+*.env
+
+# Arquivos gerados durante a construção
+/build/
+*.egg-info/
+*.pyz
+
+# Dependências (por exemplo, /venv/, /venv3/)
+/lib/
+/lib64/
+/venv/
+/venv3/
+node_modules/
+*.lock
+
+# Arquivos de saída (por exemplo, /output/)
+/output/
+
+SavedModels/
+
+Modelos/FASTER/research-20231028T181913Z-001.zip
