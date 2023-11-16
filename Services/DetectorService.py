@@ -1,5 +1,6 @@
 import sys
 import os
+import random
 
 import datetime
 
@@ -49,7 +50,7 @@ class DetectorService():
         self.EXTENSAO_IMAGEM = '.jpg'
 
     def carregar_faster(self):
-        self.faster_rcnn = ModeloObjectDetectionAPI('', self.constPath.LABEL_MAP_PATH)
+        self.faster_rcnn = ModeloObjectDetectionAPI('', self.constPath.LABEL_MAP_PATH, 0.9)
         self.faster_rcnn.carregar_modelo_disco(self.constPath.FASTER_PESOS)
 
     def carregar_cnn(self):
@@ -92,8 +93,10 @@ class DetectorService():
         imagem_np = imagem_np = np.array(imagem)
         output_dict = self.faster_rcnn.executar_deteccao_imagem(imagem_np)
         retorno_processado = Processamento.retornar_coordenadas_bbox(output_dict, imagem)
+        altura, largura, canais = imagem.shape
 
         listaDeteccoes = [] 
+        imagem_saida = imagem.copy()
         for i, retorno in enumerate(retorno_processado):
             ymin = retorno[0][2]
             ymax = retorno[0][3]
@@ -108,9 +111,11 @@ class DetectorService():
 
             defeituoso = ConstantsDeteccao.DEFEITUOSO if (previsaoDefect > ConstantsDeteccao.CNN_LIMIAR) * 1 else ConstantsDeteccao.NAO_DEFEITUOSO
 
-            listaDeteccoes.append(DetectedObject([ymin, ymax, xmin, xmax], defeituoso, previsaoLevel, retorno[1], retorno[2]))
+            listaDeteccoes.append(DetectedObject([ymin, ymax, xmin, xmax], defeituoso, previsaoLevel, retorno[1], retorno[2], altura, largura))
             
-            #imagem_saida = self.desenhar_bboxes_labels(imagem_saida, retorno, previsaoLevel, defeituoso, ymin, ymax, xmin, xmax)
+            imagem_saida = self.desenhar_bboxes_labels(imagem_saida, retorno, previsaoLevel, defeituoso, ymin, ymax, xmin, xmax)
+        
+        cv2.imwrite(f'img_{random.randint(1, 10000)}.jpg', imagem_saida)
 
         return listaDeteccoes
 
