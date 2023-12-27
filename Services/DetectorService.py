@@ -115,7 +115,7 @@ class DetectorService():
             
             imagem_saida = self.desenhar_bboxes_labels(imagem_saida, retorno, previsaoLevel, defeituoso, ymin, ymax, xmin, xmax)
         
-        cv2.imwrite(f'img_{random.randint(1, 10000)}.jpg', imagem_saida)
+        #cv2.imwrite(f'img_{random.randint(1, 10000)}.jpg', imagem_saida)
 
         return listaDeteccoes
 

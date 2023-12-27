@@ -43,10 +43,5 @@ def enviar_imagem():
 
     return detected_objects_json
 
-    '''
-    data = [DetectedObject([175, 572, 172, 343], "Defective", 0, 2, 0.9999783039093018)       ,DetectedObject([157, 549, 431, 646], "Defective", 0, 2, 0.9999783039093018)       ,DetectedObject([171, 567, 318, 472], "Defective", 0, 2, 0.9999783039093018)]
-
-    return json.dumps([obj.__dict__ for obj in data], cls=DetectedObjectEncoder)'''
-
 if __name__ == '__main__':
    app.run(host = ConstantsAPI.API_HOST, port=ConstantsAPI.PORT, debug = True)
