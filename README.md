@@ -42,6 +42,8 @@ apt install --allow-change-held-packages libcudnn8=8.1.0.77-1+cuda11.2
 
 É importante instalar também as demais dependencias da API como o flask etc. Caso encontre alguma dependência não listada favor solicitar a inserção da mesma.
 
+Obs.: Para executar o processo é necessário alterar o IP em que a API está executando. Para isso, obtenho o endereço IP do host, acesse a classe: Utils/Contants/ConstantsAPI e altere o endereço IP em API_HOST para o endereço IP do host. Inicie a API
+
 # Funcionamento do processo
 
 Primeiramente a imagem é recebida pela API no endpoint enviar-imagem depois o DetectorService é responsável realizar a detecção. A inicialização das classes referentes as redes neurais são iniciadas na inicialização da API para evitar lentidão durante a realização das detecções. 
@@ -124,6 +126,8 @@ apt install --allow-change-held-packages libcudnn8=8.1.0.77-1+cuda11.2
 ```
 
 It is important to also install other API dependencies such as flask, etc. If you find any dependency not listed, please request its insertion.
+
+Note: To execute the process it is necessary to change the IP on which the API is running. To do this, I get the host's IP address, access the class: Utils/Contants/ConstantsAPI and change the IP address in API_HOST to the host's IP address. Launch the API
 
 # Process operation
 
