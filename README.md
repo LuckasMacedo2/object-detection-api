@@ -1,9 +1,5 @@
 # Object Detector API
 
-# English
-
-# Object Detector API
-
 ## API Description
 
 This project includes the code for the REST API used to detect defective additively manufactured objects.
